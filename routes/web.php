@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RunnerEnrollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/runner-enroll', [RunnerEnrollController::class, 'create'])->name('runner.enroll');
+
+Route::post('/runner-enroll', [RunnerEnrollController::class, 'store'])->name('runner.enroll');
+
+Route::get('/runner-results', [RunnerEnrollController::class, 'result'])->name('runner.results');
+
+Route::get('/save-results', [RunnerEnrollController::class, 'createResult'])->name('save.runner.results');
